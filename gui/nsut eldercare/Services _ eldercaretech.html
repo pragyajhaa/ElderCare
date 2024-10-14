@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elder Care - Fitness Band for Elderly</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('./servicebg.webp'); /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #333;
+        }
+
+        /* Global Styles */
+        h1 {
+            text-align: center;
+            color: #fff;
+            margin-top: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            margin: 80px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #19beec;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .login-btn:hover {
+            background-color: #17a2b8;
+        }
+
+        .navbar {
+            background-color: #2c3e50;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar h1 {
+            color: white;
+        }
+
+        .navbar nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+        }
+
+        .navbar nav a:hover {
+            color: #19beec;
+        }
+
+        .home-section {
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .home-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .home-section p {
+            font-size: 18px;
+            color: #fff;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #0d7f9c;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 20px;
+            width: calc(100% - 40px);
+            max-width: 300px;
+        }
+
+        .emergency-btn{
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #9c0d0d;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 20px;
+            width: calc(100% - 40px);
+            max-width: 300px;
+
+        }
+        .assistant-btn{
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #35d926;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 20px;
+            width: calc(100% - 40px);
+            max-width: 300px;
+
+        }
+
+        .cta-button:hover, .emergency-btn:hover, .assistant-btn:hover {
+            background-color: #171616;
+        }
+
+        .buttons-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Page -->
+    <div class="container">
+        <h1>Welcome to Elder Care</h1>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+            <p id="error-message" style="color: red; margin-top: 10px; display: none;">Invalid Username or Password!</p>
+        </form>
+    </div>
+
+    <!-- Home Page -->
+    <div id="home" style="display: none;">
+        <header>
+            <div class="navbar">
+                <h1>Elder Care</h1>
+                <nav>
+                    <a href="./Home _ eldercaretech.html">Home</a>
+                    <a href="./About Us _ eldercaretech.html">About</a>
+                    <a href="./Services _ eldercaretech.html">Services</a>
+                    <a href="./Services _ eldercaretech.html">Logout</a>
+                </nav>
+            </div>
+        </header>
+        <section class="home-section">
+            <h2>Monitor Your Health with Elder Care</h2>
+            <p>Track your health with ease and confidence. Stay ahead of potential issues with real-time monitoring and alerts designed especially for elderly care.</p>
+            <a href="./data.html" class="cta-button">Access Your Data</a>
+            <div class="buttons-container">
+                <a href="./emergency.html" class="emergency-btn">Emergency</a>
+                <a href="./virtual-assistant.html" class="assistant-btn">Virtual Assistant</a>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Hardcoded credentials for login validation
+        const validUsername = "Shrey";
+        const validPassword = "nsutwinner";
+
+        // Form validation and login functionality
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('error-message');
+
+            // Check if the credentials match
+            if (username === validUsername && password === validPassword) {
+                document.querySelector('.container').style.display = 'none';
+                document.getElementById('home').style.display = 'block';
+            } else {
+                errorMessage.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

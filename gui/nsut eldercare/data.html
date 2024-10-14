@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sensor Data Dashboard</title>
+  <style>
+    /* General styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-image: url(./bg\ image\ 2.jpg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      margin: 0;
+      padding-top: 80px; /* Adjust to prevent overlap with navbar */
+      color: #333;
+    }
+
+    /* Navbar styles */
+    .navbar {
+      background-color: #0c0c0c;
+      color: white;
+      padding: 10px 0px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    .navbar .nav-brand {
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-size: 20px;
+      margin: 0 20px;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: #f1f1f1;
+      transform: scale(1.1);
+    }
+
+    /* Container for the three sensor boxes */
+    .sensor-container {
+      display: flex;
+      justify-content: space-around;
+      width: 90%;
+      margin: 40px auto;
+      flex-wrap: wrap;
+    }
+
+    /* Style for each sensor box */
+    .sensor-box {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      padding: 20px;
+      width: 250px;
+      height: 400px;
+      margin: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+
+    /* Hover effects for sensor boxes */
+    .sensor-box:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .sensor-box h3 {
+      font-size: 22px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .sensor-box p {
+      font-size: 24px;
+      margin: 20px 0 0;
+      color: #555;
+    }
+
+    /* Image styling */
+    .sensor-image {
+      width: 100%;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+
+    /* Button styles */
+    .sensor-box button {
+      background-color: #19beec;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 18px;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .sensor-box button:hover {
+      background-color: #17a2b8;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="nav-brand">Dashboard</div>
+    <div>
+      <a href="./Home _ eldercaretech.html">Home</a>
+      <a href="./Services _ eldercaretech.html">Logout</a>
+    </div>
+  </div>
+
+  <!-- Sensor Data Container -->
+  <div class="sensor-container">
+    <!-- Heart Pulse Sensor Box with PNG Image -->
+    <div class="sensor-box">
+      <h3>Heart Pulse</h3>
+      <img src="./heart.png" alt="Heart Pulse" class="sensor-image">
+      <p id="heart-rate">75 BPM</p>
+    </div>
+
+    <!-- Body Temperature Sensor Box with PNG Image -->
+    <div class="sensor-box">
+      <h3>Body Temperature</h3>
+      <img src="./temperature.png" alt="Body Temperature" class="sensor-image">
+      <p id="body-temp">36.5 °C</p>
+    </div>
+
+    <!-- Fall Detection Sensor Box with PNG Image -->
+    <div class="sensor-box">
+      <h3>Fall Detection</h3>
+      <img src="./fall.png" alt="Fall Detection" class="sensor-image">
+      <p id="fall-detection">No fall detected</p>
+    </div>
+  </div>
+
+  <!-- JavaScript for Data Fluctuation -->
+  <script>
+    // Predefined heart rate values
+    const heartRateValues = [78, 79, 74, 80, ,77, 76, 81];
+    // Predefined body temperature values
+    const bodyTempValues = [23.5, 23.1, 24.4, 24.7, 24.5];
+
+    // Function to fluctuate heart rate
+    function fluctuateHeartRate() {
+      const heartRateElement = document.getElementById('heart-rate');
+      let index = 0; // Start from the first value
+
+      setInterval(() => {
+        heartRateElement.textContent = `${heartRateValues[index]} BPM`;
+        index = (index + 1) % heartRateValues.length; // Cycle through values
+      }, 1000); // Update every second
+    }
+
+    // Function to fluctuate body temperature
+    function fluctuateBodyTemperature() {
+      const bodyTempElement = document.getElementById('body-temp');
+      let index = 0; // Start from the first value
+
+      setInterval(() => {
+        bodyTempElement.textContent = `${bodyTempValues[index].toFixed(1)} °C`;
+        index = (index + 1) % bodyTempValues.length; // Cycle through values
+      }, 1000); // Update every second
+    }
+
+    // Call the functions to simulate data fluctuation
+    fluctuateHeartRate();
+    fluctuateBodyTemperature();
+  </script>
+
+</body>
+</html>
